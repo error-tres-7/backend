@@ -23,6 +23,9 @@ CREATE TABLE IF NOT EXISTS Locales (
     id_mercado INT NOT NULL,
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
+    horario VARCHAR(150) NULL,
+    -- Declared acceptance only; empty means "Consulta al comerciante", never an implicit default.
+    metodos_pago SET('efectivo', 'transferencia', 'tarjeta') NOT NULL DEFAULT '',
     FOREIGN KEY (id_mercado) REFERENCES Mercados(id_mercado)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
